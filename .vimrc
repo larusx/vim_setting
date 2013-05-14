@@ -125,3 +125,4 @@ let NERDTreeShowHidden=1
 let NERDTreeShowLineNumbers=1
 let NERDTreeWinSize=31
 nnoremap <F3> :NERDTreeToggle<CR>
+nnoremap <F5> :make<CR>
