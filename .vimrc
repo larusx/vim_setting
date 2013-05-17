@@ -9,6 +9,7 @@ set cindent
 filetype plugin on
 set tags+=~/.vim/systags
 set tags+=~/.vim/cpptags
+set smartindent
 set autowriteall
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
@@ -126,3 +127,5 @@ let NERDTreeShowLineNumbers=1
 let NERDTreeWinSize=31
 nnoremap <F3> :NERDTreeToggle<CR>
 nnoremap <F5> :make<CR>
+
+
