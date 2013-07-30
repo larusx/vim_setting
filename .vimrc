@@ -1,6 +1,6 @@
-set tabstop=4
-set softtabstop=4 
-set shiftwidth=4 
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2 
 set noexpandtab 
 set nu  
 set mouse=a
@@ -99,11 +99,11 @@ let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 " https://github.com/c9s/perlomni.vim
 let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
-let Tlist_Auto_Open = 1
+let Tlist_Auto_Open = 0
 let Tlist_Ctags_Cmd = '/usr/bin/ctags'
 let Tlist_Show_One_File = 1
 let Tlist_Exit_OnlyWindow = 1
-map <F2> :!ctags --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ ./*<CR>
+map <F2> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ ./*<CR>
 let OmniCpp_NamespaceSearch = 1 
 let OmniCpp_GlobalScopeSearch = 1 
 let OmniCpp_ShowAccess = 1 
@@ -128,4 +128,18 @@ let NERDTreeWinSize=31
 nnoremap <F3> :NERDTreeToggle<CR>
 nnoremap <F5> :make<CR>
 
+set encoding=utf-8
+set fileencoding=utf-8
 
+command -bang -nargs=? QFix call QFixToggle(<bang>0)
+function! QFixToggle(forced)
+	if exists("g:qfix_win") && a:forced == 0
+		cclose
+		unlet g:qfix_win
+	else
+		copen 10
+		let g:qfix_win = bufnr("$")
+	endif
+endfunction
+
+nmap <F4> :QFix<CR>
