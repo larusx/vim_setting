@@ -6,11 +6,13 @@ set nu
 set mouse=a
 set autoindent 
 set cindent
-filetype plugin on
+syntax on
+filetype plugin indent on
 set tags+=~/.vim/systags
 set tags+=~/.vim/cpptags
 set smartindent
 set autowriteall
+set nobackup
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -127,6 +129,7 @@ let NERDTreeShowLineNumbers=1
 let NERDTreeWinSize=31
 nnoremap <F3> :NERDTreeToggle<CR>
 nnoremap <F5> :make<CR>
+nnoremap <F6> :!./a.out<CR>
 
 set encoding=utf-8
 set fileencoding=utf-8
@@ -143,3 +146,13 @@ function! QFixToggle(forced)
 endfunction
 
 nmap <F4> :QFix<CR>
+
+call pathogen#infect()
+
+
+let g:nodejs_complete_config = {
+\  'js_compl_fn': 'jscomplete#CompleteJS',
+\  'max_node_compl_len': 15
+\}
+
+au FileType javascript set dictionary+=$HOME/.vim/dict/node.dict
