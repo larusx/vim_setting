@@ -156,3 +156,10 @@ let g:nodejs_complete_config = {
 \}
 
 au FileType javascript set dictionary+=$HOME/.vim/dict/node.dict
+
+inoremap ( ()<ESC>i
+inoremap [ []<ESC>i
+inoremap { {}<ESC>i
+inoremap < <><ESC>i
+inoremap " ""<ESC>i
+inoremap ' ''<ESC>i
