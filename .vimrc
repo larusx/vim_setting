@@ -130,6 +130,8 @@ let NERDTreeWinSize=31
 nnoremap <F3> :NERDTreeToggle<CR>
 nnoremap <F5> :make<CR>
 nnoremap <F6> :!./a.out<CR>
+nnoremap <F8> :!svn ci -m"ajax"<CR>
+
 
 set encoding=utf-8
 set fileencoding=utf-8
@@ -164,7 +166,8 @@ inoremap { {}<ESC>i
 inoremap " ""<ESC>i
 inoremap ' ''<ESC>i
 
-colorscheme ron
+colorscheme ron 
+set background=dark
 
 if has("cscope")
 	set csprg=/usr/bin/cscope
@@ -188,4 +191,19 @@ nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
  
 let g:pydiction_menu_height = 10
 
-let g:pydiction_location = '/home/larus/.vim/bundle/pydiction/complete-dict'
+let g:pydiction_location = '/home/apple/.vim/bundle/pydiction/complete-dict'
+
+let g:html_indent_inctags = "html,body,head,tbody"
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
+
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+
+"set foldenable
+"set foldmethod=syntax
+
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,ColorScheme * :hi IndentGuideOdd guibg=red ctermbg=3
+autocmd VimEnter,ColorScheme * :hi IndentGuideEven guibg=green ctermbg=4
+
